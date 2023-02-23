@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html {
+    background-image: url(/assets/background1-01.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    font-family: 'Press Start 2P', cursive;
+    height: 100%;
+    margin: 40px 40px;
+    align-content: center;
+    align-items: center;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    text-align: center;
+    width: 1050px;
+    margin: 0 auto;
+    
+}
+
+header img {
+    width: 15%;
+}
+.img {
+    display: inline-block;
+    border: 5px solid black;
+    width: 200px;
+    height: 200px;
+    background-color: lightgray;
+    border-radius: 20%;
+    justify-content: center;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    overflow:hidden;
+    margin: 20px;
+}
+.ash, .brock, .yami, .joey {
+    width: 100%;
+}
+.images {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.character {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.selecttext {
+    margin: 40px 0;
+}
+.next {
+    background-color: #f5b7b1; 
+    border: 3px solid #d35400; 
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Press Start 2P', cursive;
+    margin-top: 40px;
+}
+.next:hover {
+    cursor: pointer;
+}
+

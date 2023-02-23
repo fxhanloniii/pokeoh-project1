@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html {
+    background-image: url(/assets/background1-01.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    font-family: 'Press Start 2P', cursive;
+    height: 100%;
+    margin: 40px 40px;
+    align-content: center;
+    align-items: center;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    text-align: center;
+    width: 1050px;
+    margin: 0 auto;
+    
+}
+
+header img {
+    width: 15%;
+}
+.main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 1050px;
+    height: 600px;
+    margin-top: 20px;
+}
+.left, .right {
+    width: 225px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    
+}
+.left {
+    background-color: #edb67c7f;
+}
+.right {
+    background-color: #a1dcee78;
+}
+.partners {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.playerleft, .partnerleft {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    overflow:hidden;
+}
+.playerLeftImg {
+    width: 100%;
+}
+.partnerLeftImg {
+    width: 100%;
+}
+.player2Img {
+    width: 100%;
+}
+.partner2Img {
+    width: 100%;
+}
+
+
+.moveButtons {
+    width: 220px;
+    height: 150px;
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 90px);
+    grid-template-rows: repeat(2);
+    grid-gap: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.move1, .move2, .move3, .move4 {
+    width: 90px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.healthBar {
+    border: 1px solid black;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    
+}
+.health {
+    background-color: rgba(0, 212, 0, 0.785);
+    height: 40px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+
+.middle {
+    width: 525px;
+    height: 500px;
+    background-image: url(/assets/battlebackground-01.png);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.battlefield {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 50px;
+}
+.player1 {
+    height: 100px;
+    width: 100px;
+}
+.attack {
+    height: 50px;
+    width: 300px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    
+}
+.player2 {
+    height: 100px;
+    width: 100px;
+}
+.floor {
+    width: 525px;
+    height: 50px;  
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
+}
+
+.player1 img {
+    width: 100%
+}
+.move {
+    width: 32px;
+    height: 32px;
+}
+.player2 img {
+    width: 100%;
+}
+
+.soundText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.textBox {
+    border: 1px solid black;
+    width: 500px;
+    height: 40px;
+    text-align: center;
+}
+.audioBar {
+    margin-top: 20px;
+}
