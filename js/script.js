@@ -207,8 +207,34 @@ document.querySelector('.partner2Img2').setAttribute('src', player2BattlePartner
 };
 
 // Battle Begins
+let player1Health = 100;
+let player2Health = 100;
+let attack = 20;
+const player1Moves = [selectedBattlePartnerMove1, selectedBattlePartnerMove2, selectedBattlePartnerMove3, selectedBattlePartnerMove4];
+console.log(player1Moves);
+const player2Moves =[player2BattlePartner.moves[0],player2BattlePartner.moves[1],player2BattlePartner.moves[2],player2BattlePartner.moves[3]];
+console.log(player2Moves);
+const moveButtons = document.querySelectorAll('.moveButtons1 button');
+console.log(moveButtons);
+let gameDetails = document.querySelector('.gameDetails');
+function player1Attack() {
+    gameDetails.innerHTML = 'Choose Your Move';
+    moveButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            let player1Attack = player1Moves[index];
+            gameDetails.innerHTML = `${selectedBattlePartnerName} uses ${player1Attack}`;
+            setTimeout(() => {
+                let damage = calculateDamage();
+                gameDetails.innerHTML = `Dealing ${damage} damage`;
+              }, 5000);
+        })
+    })
+}
+player1Attack();
 
-
-
-
+function calculateDamage() {
+    const damageMultiplier = Math.random() + 0.5;
+    let damage = Math.floor(damageMultiplier * attack);
+    return damage;
+}
 

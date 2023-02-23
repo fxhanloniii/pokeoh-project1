@@ -83,7 +83,7 @@ header img {
 }
 
 
-.moveButtons {
+.moveButtons1, .moveButtons2 {
     width: 220px;
     height: 150px;
     margin-top: 5px;
@@ -100,6 +100,7 @@ header img {
     height: 50px;
     border: 1px solid black;
 }
+
 
 .healthBar {
     border: 1px solid black;
