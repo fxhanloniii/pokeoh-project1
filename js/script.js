@@ -218,6 +218,8 @@ const moveButtons = document.querySelectorAll('.moveButtons1 button');
 console.log(moveButtons);
 let gameDetails = document.querySelector('.gameDetails');
 let player1Turn = true;
+let health1 = document.querySelector('.health1');
+let health2 = document.querySelector('.health2');
 
 function player1Attack() {
     gameDetails.innerHTML = 'Choose Your Move';
@@ -233,6 +235,8 @@ function player1Attack() {
                 let damage = calculateDamage();
                 gameDetails.innerHTML = `Dealing ${damage} damage`;
                 player2Health -= damage;
+                let healthLeft2 = player2Health - damage;
+                health2.style.width = `${healthLeft2}%`;
                 setTimeout(() => {
                     if (player2Health <= 0) {
                         endGame(selectedBattlePartnerName, selectedCharacterName);
@@ -255,6 +259,8 @@ function player2Attack() {
         let damage = calculateDamage();
         gameDetails.innerHTML = `Dealing ${damage} damage`;
         player1Health -= damage;
+        let healthLeft1 = player1Health - damage;
+        health1.style.width = `${healthLeft1}%`;
         setTimeout(() => {
             if (player1Health <= 0) {
                 endGame(player2BattlePartner.name, player2Character.name);
