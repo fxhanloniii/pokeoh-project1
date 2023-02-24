@@ -217,20 +217,48 @@ console.log(player2Moves);
 const moveButtons = document.querySelectorAll('.moveButtons1 button');
 console.log(moveButtons);
 let gameDetails = document.querySelector('.gameDetails');
+let player1Turn = true;
+
 function player1Attack() {
     gameDetails.innerHTML = 'Choose Your Move';
     moveButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
+            if (player1Turn) {
+            moveButtons.forEach(button => {
+                button.disabled = true;
+            });
             let player1Attack = player1Moves[index];
             gameDetails.innerHTML = `${selectedBattlePartnerName} uses ${player1Attack}`;
             setTimeout(() => {
                 let damage = calculateDamage();
                 gameDetails.innerHTML = `Dealing ${damage} damage`;
-              }, 5000);
-        })
+                player2Health -= damage;
+                setTimeout(() => {
+                    if (player2Health <= 0) {
+                        endGame(selectedBattlePartnerName);
+                    } else {
+                        player1Turn = false;
+                        player2Attack();
+                    }
+                   }, 2000);
+              }, 2000);
+        }
+        });
     })
 }
 player1Attack();
+function player2Attack() {
+    const player2Move = player2BattlePartner.moves[Math.floor(Math.random() * player2BattlePartner.moves.length)];
+    console.log(player2Move)
+    gameDetails.innerHTML = `${player2BattlePartner.name} uses ${player2Move}`
+    setTimeout(() => {
+        let damage = calculateDamage();
+        gameDetails.innerHTML = `Dealing ${damage} damage`;
+        setTimeout(() => {
+            player1Attack();
+        })
+        }, 5000);
+}
 
 function calculateDamage() {
     const damageMultiplier = Math.random() + 0.5;
