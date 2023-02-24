@@ -235,13 +235,13 @@ function player1Attack() {
                 player2Health -= damage;
                 setTimeout(() => {
                     if (player2Health <= 0) {
-                        endGame(selectedBattlePartnerName);
+                        endGame(selectedBattlePartnerName, selectedCharacterName);
                     } else {
                         player1Turn = false;
                         player2Attack();
                     }
-                   }, 2000);
-              }, 2000);
+                   }, 3000);
+              }, 3000);
         }
         });
     })
@@ -254,15 +254,28 @@ function player2Attack() {
     setTimeout(() => {
         let damage = calculateDamage();
         gameDetails.innerHTML = `Dealing ${damage} damage`;
+        player1Health -= damage;
         setTimeout(() => {
-            player1Attack();
-        })
-        }, 5000);
+            if (player1Health <= 0) {
+                endGame(player2BattlePartner.name, player2Character.name);
+            } else {
+                player1Turn = true;
+                moveButtons.forEach(button => {
+                    button.disabled = false;
+                });
+                gameDetails.innerHTML = 'Choose Your Move'
+            }
+        }, 3000)
+        }, 3000);
 }
 
 function calculateDamage() {
     const damageMultiplier = Math.random() + 0.5;
     let damage = Math.floor(damageMultiplier * attack);
     return damage;
+}
+
+function endGame(bpWinner, cWinner) {
+    gameDetails.innerHTML = `${bpWinner} and ${cWinner} Win!`
 }
 
