@@ -107,20 +107,19 @@ header img {
     width: 200px;
     height: 40px;
     border-radius: 20px;
+    overflow: hidden;
     
 }
 .health1 {
     background-color: rgba(0, 212, 0, 0.785);
     height: 40px;
     width: 100%;
-    border-radius: 20px;
 }
 
 .health2 {
     background-color: rgba(0, 212, 0, 0.785);
     height: 40px;
     width: 100%;
-    border-radius: 20px;
 }
 
 

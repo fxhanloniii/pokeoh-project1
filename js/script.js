@@ -22,11 +22,155 @@ class BattlePartner {
         this.image = image;
         this.moves = moves;
     };
+    ember(){
+
+    } 
+    dragonRage() {
+
+    } 
+    flameThrower() {
+
+    } 
+    rockThrow() {
+
+    }
+    waterGun() {
+
+    } 
+    hydroPump() {
+
+    } 
+    surf() {
+
+    } 
+    rainDance() {
+
+    }
+    shadowBall() {
+
+    } 
+    darkPulse() {
+
+    } 
+    shadowClaw() {
+
+    } 
+    dreamEater() {
+
+    }
+    hyperBeam() {
+
+    } 
+    dragonPulse() {
+
+    } 
+    crunch() {
+
+    } 
+    waterfall() {
+
+    }
+    thunderbolt() {
+
+    }
+    thunderPunch(){
+
+    }
+    electroBall() {
+        
+    } 
+    thunder() {
+
+    }
+    solarBeam() {
+        
+    }
+    toxic() {
+        
+    }
+    razorLeaf() {
+        
+    }
+    sludgeBomb() {
+
+    }
+    whiteLightningBlast() {
+        
+    }
+    ultimateDragonBurst() {
+        
+    }
+    dragonicRoar() {
+        
+    }
+    divineDragonCannon() {
+
+    }
+    darkMagicAttack() {
+        
+    }
+    thousandKnives() {
+        
+    }
+    illusionMagic() {
+        
+    }
+    darkRenewal() {
+
+    }
+    infernoBlast() {
+        
+    }
+    wingBurst() {
+        
+    }
+    flameTornado() {
+        
+    }
+    flareStrike() {
+
+    }
+    lightningBlade() {
+        
+    }
+    thunderSpearSlash() {
+        
+    }
+    tornadoBlade() {
+        
+    }
+    swiftStrike() {
+
+    }
+    darkFlareBurst() {
+        
+    }
+    blackFireballBlast() {
+        
+    }
+    infernoDive() {
+        
+    }
+    fireBlast() {
+
+    }
+    terraMagnaShot() {
+        
+    }
+    magnaBlast() {
+        
+    }
+    shockwave() {
+        
+    }
+    magneticImplosion() {
+        console.log("ATTACK")
+    }
 };
 
 const charizard = new BattlePartner ("Charizard", ["/assets/char1.png","/assets/char2.png"], ["Ember", "Dragon Rage", "Flame Thrower", "Rock Throw"]);
 const blastoise = new BattlePartner("Blastoise",["/assets/blas1.png","/assets/blas2.png"],["Water Gun", "Hydro Pump", "Surf","Rain Dance"]);
-const gengar = new BattlePartner("Gengar",["/assets/geng1.png","/assets/geng2.png"],["Shawdow Ball", "Dark Pulse", "Shadow Claw","Dream Eater"]);
+const gengar = new BattlePartner("Gengar",["/assets/geng1.png","/assets/geng2.png"],["Shadow Ball", "Dark Pulse", "Shadow Claw","Dream Eater"]);
 const gyarados = new BattlePartner("Gyarados",["/assets/gyar1.png","/assets/gyar2.png"],["Hyper Beam", "Dragon Pulse", "Crunch","Waterfall"]);
 const pikachu = new BattlePartner("Pikachu",["/assets/pika1.png","/assets/pika2.png"],["Thunderbolt", "Thunder Punch", "Electro Ball","Thunder"]);
 const venusaur = new BattlePartner("Venusaur",["/assets/venu1.png","/assets/venu2.png"],["Solar Beam", "Toxic", "Razor Leaf","Sludge Bomb"]);
@@ -74,12 +218,12 @@ const characterList = {
 
 // Music Player On Battle Page
 function toggleMusic() {
-    var audio = document.getElementById("audio");
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
+var audio = document.getElementById("audio");
+if (audio.paused) {
+audio.play();
+} else {
+audio.pause();
+}
 }
 
 // Start Button On Home Page
@@ -285,3 +429,4 @@ function endGame(bpWinner, cWinner) {
     gameDetails.innerHTML = `${bpWinner} and ${cWinner} Win!`
 }
 
+charizard.magneticImplosion()
