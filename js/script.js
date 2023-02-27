@@ -419,6 +419,14 @@ function player2Attack() {
         }, 3000);
 }
 
+
+function attackMove(move) {
+    switch (move) {
+        case "Ember":
+            // Animation Code
+            break;
+    }
+}
 function calculateDamage() {
     const damageMultiplier = Math.random() + 0.5;
     let damage = Math.floor(damageMultiplier * attack);
@@ -428,5 +436,6 @@ function calculateDamage() {
 function endGame(bpWinner, cWinner) {
     gameDetails.innerHTML = `${bpWinner} and ${cWinner} Win!`
 }
+
 
 charizard.magneticImplosion()
