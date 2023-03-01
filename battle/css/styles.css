@@ -98,7 +98,6 @@ header img {
 .move1, .move2, .move3, .move4 {
     width: 90px;
     height: 50px;
-    border: 1px solid black;
 }
 
 
@@ -150,10 +149,45 @@ header img {
 .attack {
     height: 50px;
     width: 300px;
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     
+}
+
+#attackMove {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: -10px;
+    animation-duration: 2s;
+    animation-name: moveAttack;
+}
+
+#attackMove2 {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: -10px;
+    animation-duration: 2s;
+    animation-name: moveAttack2;
+}
+
+@keyframes moveAttack {
+    from {
+        left: 0;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes moveAttack2 {
+    from {
+        left: 100%;
+    }
+    to {
+        left: 0%;
+    }
 }
 .player2 {
     height: 100px;
@@ -188,7 +222,6 @@ header img {
 }
 
 .textBox {
-    border: 1px solid black;
     width: 500px;
     height: 40px;
     text-align: center;
@@ -196,3 +229,16 @@ header img {
 .audioBar {
     margin-top: 20px;
 }
+
+button {
+    background-color: #f5b7b1; 
+    border: 3px solid #d35400; 
+    font-family: 'Press Start 2P', cursive;
+    width: 90px;
+    height: 50px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    font-size: 10px;
+}
+button:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3) inset;
+  }

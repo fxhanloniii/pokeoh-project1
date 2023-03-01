@@ -11,7 +11,7 @@ let selectedBattlePartnerMove4 = null;
 let player2CharacterIndex = 0;
 let player2BattlePartnerIndex = 0;
 let player2Character = null;
-let player2BattlePartner =null;
+let player2BattlePartner = null;
 let player2Image = null;
 
 // Battle Partner Class & Objects
@@ -22,156 +22,13 @@ class BattlePartner {
         this.image = image;
         this.moves = moves;
     };
-    ember(){
-
-    } 
-    dragonRage() {
-
-    } 
-    flameThrower() {
-
-    } 
-    rockThrow() {
-
-    }
-    waterGun() {
-
-    } 
-    hydroPump() {
-
-    } 
-    surf() {
-
-    } 
-    rainDance() {
-
-    }
-    shadowBall() {
-
-    } 
-    darkPulse() {
-
-    } 
-    shadowClaw() {
-
-    } 
-    dreamEater() {
-
-    }
-    hyperBeam() {
-
-    } 
-    dragonPulse() {
-
-    } 
-    crunch() {
-
-    } 
-    waterfall() {
-
-    }
-    thunderbolt() {
-
-    }
-    thunderPunch(){
-
-    }
-    electroBall() {
-        
-    } 
-    thunder() {
-
-    }
-    solarBeam() {
-        
-    }
-    toxic() {
-        
-    }
-    razorLeaf() {
-        
-    }
-    sludgeBomb() {
-
-    }
-    whiteLightningBlast() {
-        
-    }
-    ultimateDragonBurst() {
-        
-    }
-    dragonicRoar() {
-        
-    }
-    divineDragonCannon() {
-
-    }
-    darkMagicAttack() {
-        
-    }
-    thousandKnives() {
-        
-    }
-    illusionMagic() {
-        
-    }
-    darkRenewal() {
-
-    }
-    infernoBlast() {
-        
-    }
-    wingBurst() {
-        
-    }
-    flameTornado() {
-        
-    }
-    flareStrike() {
-
-    }
-    lightningBlade() {
-        
-    }
-    thunderSpearSlash() {
-        
-    }
-    tornadoBlade() {
-        
-    }
-    swiftStrike() {
-
-    }
-    darkFlareBurst() {
-        
-    }
-    blackFireballBlast() {
-        
-    }
-    infernoDive() {
-        
-    }
-    fireBlast() {
-
-    }
-    terraMagnaShot() {
-        
-    }
-    magnaBlast() {
-        
-    }
-    shockwave() {
-        
-    }
-    magneticImplosion() {
-        console.log("ATTACK")
-    }
+    
 };
 
 const charizard = new BattlePartner ("Charizard", ["/assets/char1.png","/assets/char2.png"], ["Ember", "Dragon Rage", "Flame Thrower", "Rock Throw"]);
 const blastoise = new BattlePartner("Blastoise",["/assets/blas1.png","/assets/blas2.png"],["Water Gun", "Hydro Pump", "Surf","Rain Dance"]);
 const gengar = new BattlePartner("Gengar",["/assets/geng1.png","/assets/geng2.png"],["Shadow Ball", "Dark Pulse", "Shadow Claw","Dream Eater"]);
-const gyarados = new BattlePartner("Gyarados",["/assets/gyar1.png","/assets/gyar2.png"],["Hyper Beam", "Dragon Pulse", "Crunch","Waterfall"]);
+const gyarados = new BattlePartner("Gyarados",["/assets/gyar1.png","/assets/gyar2.png"],["Hyper Beam", "Dragon Pulse", "Surf","Waterfall"]);
 const pikachu = new BattlePartner("Pikachu",["/assets/pika1.png","/assets/pika2.png"],["Thunderbolt", "Thunder Punch", "Electro Ball","Thunder"]);
 const venusaur = new BattlePartner("Venusaur",["/assets/venu1.png","/assets/venu2.png"],["Solar Beam", "Toxic", "Razor Leaf","Sludge Bomb"]);
 const blueEyesWhiteDragon = new BattlePartner ("Blue Eyes White Dragon", ["/assets/bewd1.png","/assets/bewd2.png"], ["White Lightning Blast", "Ultimate Dragon Burst", "Dragonic Roar", "Divine Dragon Cannon"]);
@@ -196,6 +53,8 @@ const BattlePartnerList = {
     valk: valkyrionTheMagnaWarrior
 };
 
+
+
 class Character {
     constructor(name, image) {
         this.name = name;
@@ -215,6 +74,25 @@ const characterList = {
     yami: yami,
     joey: joey
 };
+
+function attackMove(move, player1Turn) {
+    let attackDiv = document.querySelector('.attack');
+    let attackImg = document.createElement('img');
+    let imageName = move.toLowerCase().replace(' ','') + '.png';
+    attackImg.setAttribute('src', `/assets/${imageName}`);
+    if (player1Turn) {
+        attackImg.setAttribute('id', 'attackMove');
+    } else {
+        attackImg.setAttribute('id', 'attackMove2');
+        attackImg.style.transform = 'scaleX(-1)';
+    }
+    attackDiv.appendChild(attackImg);
+    let attackMove = document.getElementById(player1Turn ? 'attackMove' : 'attackMove2');
+    attackMove.style.animationPlayState = 'running';
+    attackMove.addEventListener('animationend', function() {
+        attackDiv.removeChild(attackMove);
+    });
+}; 
 
 // Music Player On Battle Page
 function toggleMusic() {
@@ -355,11 +233,8 @@ let player1Health = 100;
 let player2Health = 100;
 let attack = 20;
 const player1Moves = [selectedBattlePartnerMove1, selectedBattlePartnerMove2, selectedBattlePartnerMove3, selectedBattlePartnerMove4];
-console.log(player1Moves);
 const player2Moves =[player2BattlePartner.moves[0],player2BattlePartner.moves[1],player2BattlePartner.moves[2],player2BattlePartner.moves[3]];
-console.log(player2Moves);
 const moveButtons = document.querySelectorAll('.moveButtons1 button');
-console.log(moveButtons);
 let gameDetails = document.querySelector('.gameDetails');
 let player1Turn = true;
 let health1 = document.querySelector('.health1');
@@ -374,6 +249,8 @@ function player1Attack() {
                 button.disabled = true;
             });
             let player1Attack = player1Moves[index];
+            attackMove(player1Attack, true);
+            console.log(player1Attack);
             gameDetails.innerHTML = `${selectedBattlePartnerName} uses ${player1Attack}`;
             setTimeout(() => {
                 let damage = calculateDamage();
@@ -391,6 +268,7 @@ function player1Attack() {
                    }, 3000);
               }, 3000);
         }
+    
         });
     })
 }
@@ -398,6 +276,7 @@ player1Attack();
 function player2Attack() {
     const player2Move = player2BattlePartner.moves[Math.floor(Math.random() * player2BattlePartner.moves.length)];
     console.log(player2Move)
+    attackMove(player2Move, false);
     gameDetails.innerHTML = `${player2BattlePartner.name} uses ${player2Move}`
     setTimeout(() => {
         let damage = calculateDamage();
@@ -420,13 +299,7 @@ function player2Attack() {
 }
 
 
-function attackMove(move) {
-    switch (move) {
-        case "Ember":
-            // Animation Code
-            break;
-    }
-}
+
 function calculateDamage() {
     const damageMultiplier = Math.random() + 0.5;
     let damage = Math.floor(damageMultiplier * attack);
@@ -438,4 +311,4 @@ function endGame(bpWinner, cWinner) {
 }
 
 
-charizard.magneticImplosion()
+
