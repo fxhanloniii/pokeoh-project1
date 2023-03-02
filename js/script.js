@@ -296,7 +296,7 @@ function player2Attack() {
         }, 3000);
 }
 
-
+// Damage Multiplier
 
 function calculateDamage() {
     const damageMultiplier = Math.random() + 0.5;
@@ -304,6 +304,7 @@ function calculateDamage() {
     return damage;
 }
 
+// End Game Function
 function endGame(bpWinner, cWinner) {
     gameDetails.innerHTML = `${bpWinner} and ${cWinner} Win!`
 }
