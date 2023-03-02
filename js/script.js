@@ -102,6 +102,7 @@ function attackMove(move, player1Turn) {
 }; 
 
 // Music Player On Battle Page
+
 function toggleMusic() {
 var audio = document.getElementById("audio");
 if (audio.paused) {
@@ -112,6 +113,7 @@ audio.pause();
 }
 
 // Start Button On Home Page
+
 const startButton = document.querySelector('.start');
 if (startButton) {
 startButton.addEventListener('click', () => {
@@ -120,6 +122,7 @@ startButton.addEventListener('click', () => {
 }
 
 // Select Character
+
 let myCharacterText = document.querySelector('.myCharacter');
 const characterImages = document.querySelectorAll('.character img');
 characterImages.forEach(img => {
@@ -149,7 +152,7 @@ nextButton.addEventListener('click', () => {
 
 // Battle Partner Page
 
-// Function to take use selection and input it into the selection div
+// Function to take selection and input it into the selection div
 function mySelection(battlePartner) {
     document.querySelector('.partnerName').innerHTML = battlePartner.name;
     document.querySelector('.selectedPartnerImg').setAttribute('src', battlePartner.image[0]);
@@ -226,7 +229,7 @@ document.querySelector('#move6').innerHTML = `${player2BattlePartner.moves[1]}`;
 document.querySelector('#move7').innerHTML = `${player2BattlePartner.moves[2]}`;
 document.querySelector('#move8').innerHTML = `${player2BattlePartner.moves[3]}`;
 document.querySelector('.partner2Img2').setAttribute('src', player2BattlePartner.image[1]);
-};
+
 
 // Battle Begins
 let player1Health = 100;
@@ -271,7 +274,7 @@ function player1Attack() {
         });
     })
 }
-player1Attack();
+
 function player2Attack() {
     const player2Move = player2BattlePartner.moves[Math.floor(Math.random() * player2BattlePartner.moves.length)];
     attackMove(player2Move, false);
@@ -296,6 +299,8 @@ function player2Attack() {
         }, 3000);
 }
 
+player1Attack();
+
 // Damage Multiplier
 
 function calculateDamage() {
@@ -309,5 +314,5 @@ function endGame(bpWinner, cWinner) {
     gameDetails.innerHTML = `${bpWinner} and ${cWinner} Win!`
 }
 
-
+};
 

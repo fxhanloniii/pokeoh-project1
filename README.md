@@ -41,4 +41,16 @@ Next Button
     - https://opengameart.org/content/fire-explode
     - https://opengameart.org/content/water-magic-effect
     https://opengameart.org/content/magic-effects
-    
+
+# Process
+    - Sketching out basic layout of pages and assets
+    - Wireframing
+    - Visual Continuity
+    - Sourcing Assets
+    - Adobe Illustrator: Edit aset images to transparent background
+    - HTML & CSS
+    - Connecting the pages
+    - Javascript
+    - CSS Touch Up
+
+

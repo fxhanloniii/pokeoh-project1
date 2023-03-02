@@ -69,7 +69,7 @@ header img {
 .selection {
     
     margin: 10px;
-    background-color: lightslategray;
+    background-color: rgb(164, 172, 180);
     border-radius: 20px;
     width: 320px;
 }

@@ -64,7 +64,6 @@ header img {
     align-items: center;
 }
 .playerleft, .partnerleft {
-    border: 1px solid black;
     width: 100px;
     height: 100px;
     overflow:hidden;
