@@ -125,8 +125,6 @@ const characterImages = document.querySelectorAll('.character img');
 characterImages.forEach(img => {
     img.addEventListener('click', () => {
         selectedCharacter = characterList[img.classList[0]];
-        console.log(img.classList[0]);
-        console.log(selectedCharacter)
         selectedCharacterName = selectedCharacter.name;
         sessionStorage.setItem('selectedCharacterName', selectedCharacter.name);
         sessionStorage.setItem('selectedCharacterImage', selectedCharacter.image[0])
@@ -169,7 +167,6 @@ battlePartnerImages.forEach(img => {
         selectedBattlePartner = img.classList[0];
         const battlePartner = BattlePartnerList[selectedBattlePartner];
         mySelection(battlePartner);
-        console.log(battlePartner.image[0])
         selectedBattlePartnerName = battlePartner.name;
         selectedBattlePartnerImage = battlePartner.image[0];
         selectedBattlePartnerMove1 = battlePartner.moves[0];
@@ -219,13 +216,9 @@ player2CharacterIndex = Math.floor(Math.random() * Object.keys(characterList).le
 player2BattlePartnerIndex = Math.floor(Math.random() * Object.keys(BattlePartnerList).length);
 player2Character = characterList[Object.keys(characterList)[player2CharacterIndex]];
 player2BattlePartner = BattlePartnerList[Object.keys(BattlePartnerList)[player2BattlePartnerIndex]];
-console.log(player2BattlePartner.moves);
-console.log(player2Character.image[1]);
 player2Image = player2Character.image[1];
-console.log(player2Image)
 document.querySelector('.team2').innerHTML = `Team ${player2Character.name}`;
-document.querySelector('.player2Img').setAttribute('src', player2Character.image[1]);
-console.log(document.querySelector('.player2Img').getAttribute('src')); 
+document.querySelector('.player2Img').setAttribute('src', player2Character.image[1]); 
 document.querySelector('.partner2Img').setAttribute('src', player2BattlePartner.image[1]);
 document.querySelector('.player1Img').setAttribute('src', selectedBattlePartnerImage);
 document.querySelector('#move5').innerHTML = `${player2BattlePartner.moves[0]}`;
@@ -257,7 +250,6 @@ function player1Attack() {
             });
             let player1Attack = player1Moves[index];
             attackMove(player1Attack, true);
-            console.log(player1Attack);
             gameDetails.innerHTML = `${selectedBattlePartnerName} uses ${player1Attack}`;
             setTimeout(() => {
                 let damage = calculateDamage();
@@ -282,7 +274,6 @@ function player1Attack() {
 player1Attack();
 function player2Attack() {
     const player2Move = player2BattlePartner.moves[Math.floor(Math.random() * player2BattlePartner.moves.length)];
-    console.log(player2Move)
     attackMove(player2Move, false);
     gameDetails.innerHTML = `${player2BattlePartner.name} uses ${player2Move}`
     setTimeout(() => {
