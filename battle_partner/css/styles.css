@@ -67,9 +67,11 @@ header img {
     grid-gap: 10px;
 }
 .selection {
-    border: solid 5px black;
+    
     margin: 10px;
     background-color: lightslategray;
+    border-radius: 20px;
+    width: 320px;
 }
 
 .imageselect {
@@ -110,10 +112,10 @@ button:active {
     margin-top: 60px;
 }
 .movebox {
-    border: solid 4px black;
+    border: solid 5px black;
     width: 125px;
     height: 40px;
-    border-radius: 10%;
+    border-radius: 10px;
     background-color: antiquewhite;
 }
 .moves {
