@@ -124,7 +124,7 @@ header img {
 .middle {
     width: 525px;
     height: 500px;
-    background-image: url(../../assets/battlebackground-01.png);
+    background-image: url(../../assets/battlebackground.png);
     background-size: cover;
     background-position: center;
     position: relative;
