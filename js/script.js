@@ -66,10 +66,10 @@ class Character {
 
 };
 
-const ash = new Character ("Ash", ["./assets/ash1.png","./assets/ash2.png"]);
-const brock = new Character ("Brock", ["./assets/brock1.png","./assets/brock2.png"]);
-const yami = new Character ("Yami", ["./assets/yami1.png","./assets/yami2.png"]);
-const joey = new Character ("Joey", ["./assets/joey1.png","./assets/joey2.png"]);
+const ash = new Character ("Ash", ["/assets/ash1.png","/assets/ash2.png"]);
+const brock = new Character ("Brock", ["/assets/brock1.png","/assets/brock2.png"]);
+const yami = new Character ("Yami", ["/assets/yami1.png","/assets/yami2.png"]);
+const joey = new Character ("Joey", ["/assets/joey1.png","/assets/joey2.png"]);
 
 // Character Keys
 
@@ -86,7 +86,7 @@ function attackMove(move, player1Turn) {
     let attackDiv = document.querySelector('.attack');
     let attackImg = document.createElement('img');
     let imageName = move.toLowerCase().replace(' ','') + '.png';
-    attackImg.setAttribute('src', `./assets/${imageName}`);
+    attackImg.setAttribute('src', `/assets/${imageName}`);
     if (player1Turn) {
         attackImg.setAttribute('id', 'attackMove');
     } else {
@@ -117,7 +117,7 @@ audio.pause();
 const startButton = document.querySelector('.start');
 if (startButton) {
 startButton.addEventListener('click', () => {
-    window.location.href = './character/character.html';
+    window.location.href = '/character/character.html';
   });
 }
 
@@ -145,7 +145,7 @@ const nextButton = document.querySelector('.next');
 if (nextButton) {
 nextButton.addEventListener('click', () => {
     if (selectedCharacter) {
-    window.location.href = './battle_partner/battle_partner.html';
+    window.location.href = '/battle_partner/battle_partner.html';
     }
   });
 }
