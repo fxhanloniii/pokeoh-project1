@@ -145,7 +145,7 @@ const nextButton = document.querySelector('.next');
 if (nextButton) {
 nextButton.addEventListener('click', () => {
     if (selectedCharacter) {
-    window.location.href = './pokeoh-project1/battle_partner/battle_partner.html';
+    window.location.href = '../battle_partner/battle_partner.html';
     }
   });
 }
