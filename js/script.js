@@ -26,18 +26,18 @@ class BattlePartner {
     
 };
 
-const charizard = new BattlePartner ("Charizard", ["./assets/char1.png","./assets/char2.png"], ["Ember", "Dragon Rage", "Flame Thrower", "Rock Throw"]);
-const blastoise = new BattlePartner("Blastoise",["./assets/blas1.png","./assets/blas2.png"],["Water Gun", "Hydro Pump", "Surf","Rain Dance"]);
-const gengar = new BattlePartner("Gengar",["./assets/geng1.png","./assets/geng2.png"],["Shadow Ball", "Dark Pulse", "Shadow Claw","Dream Eater"]);
-const gyarados = new BattlePartner("Gyarados",["./assets/gyar1.png","./assets/gyar2.png"],["Hyper Beam", "Dragon Pulse", "Surf","Waterfall"]);
-const pikachu = new BattlePartner("Pikachu",["./assets/pika1.png","./assets/pika2.png"],["Spark", "Thunder Punch", "Electro Ball","Thunder"]);
-const venusaur = new BattlePartner("Venusaur",["./assets/venu1.png","./assets/venu2.png"],["Solar Beam", "Toxic", "Rock Throw","Sludge Bomb"]);
-const blueEyesWhiteDragon = new BattlePartner ("Blue Eyes White Dragon", ["./assets/bewd1.png","./assets/bewd2.png"], ["Light Blast", "Dragon Burst", "Dragonic Roar", "Dragon Cannon"]);
-const darkMagician = new BattlePartner("Dark Magician",["./assets/dm1.png","./assets/dm2.png"],["Dark Magic", "Thousand Knives", "Illusion Magic","Dark Renewal"]);
-const elementalHeroFlameWingman = new BattlePartner("Elemental Hero Flame Wingman",["./assets/ehfw1.png","./assets/ehfw2.png"],["Inferno Blast", "Wing Burst", "Flame Tornado","Rock Throw"]);
-const gaiaTheFierceKnight = new BattlePartner("Gaia the Fierce Knight",["./assets/gtfn1.png","./assets/gtfn2.png"],["Light Blade", "Thunder Spear", "Tornado Blade","Swift Strike"]);
-const redEyesBlackDragon = new BattlePartner("Red Eyes Black Dragon",["./assets/rebd1.png","./assets/rebd2.png"],["Dark Flare Burst", "Fireball Blast", "Inferno Dive","Rock Throw"]);
-const valkyrionTheMagnaWarrior = new BattlePartner("Valkyrion the Magna Warrior",["./assets/valk1.png","./assets/valk2.png"],["Terra Magna", "Magna Blast", "Thunder","Magnetic Shock"]);
+const charizard = new BattlePartner ("Charizard", ["../assets/char1.png","../assets/char2.png"], ["Ember", "Dragon Rage", "Flame Thrower", "Rock Throw"]);
+const blastoise = new BattlePartner("Blastoise",["../assets/blas1.png","../assets/blas2.png"],["Water Gun", "Hydro Pump", "Surf","Rain Dance"]);
+const gengar = new BattlePartner("Gengar",["../assets/geng1.png","../assets/geng2.png"],["Shadow Ball", "Dark Pulse", "Shadow Claw","Dream Eater"]);
+const gyarados = new BattlePartner("Gyarados",["../assets/gyar1.png","../assets/gyar2.png"],["Hyper Beam", "Dragon Pulse", "Surf","Waterfall"]);
+const pikachu = new BattlePartner("Pikachu",["../assets/pika1.png","../assets/pika2.png"],["Spark", "Thunder Punch", "Electro Ball","Thunder"]);
+const venusaur = new BattlePartner("Venusaur",["../assets/venu1.png","../assets/venu2.png"],["Solar Beam", "Toxic", "Rock Throw","Sludge Bomb"]);
+const blueEyesWhiteDragon = new BattlePartner ("Blue Eyes White Dragon", ["../assets/bewd1.png","../assets/bewd2.png"], ["Light Blast", "Dragon Burst", "Dragonic Roar", "Dragon Cannon"]);
+const darkMagician = new BattlePartner("Dark Magician",["../assets/dm1.png","../assets/dm2.png"],["Dark Magic", "Thousand Knives", "Illusion Magic","Dark Renewal"]);
+const elementalHeroFlameWingman = new BattlePartner("Elemental Hero Flame Wingman",["../assets/ehfw1.png","../assets/ehfw2.png"],["Inferno Blast", "Wing Burst", "Flame Tornado","Rock Throw"]);
+const gaiaTheFierceKnight = new BattlePartner("Gaia the Fierce Knight",["../assets/gtfn1.png","../assets/gtfn2.png"],["Light Blade", "Thunder Spear", "Tornado Blade","Swift Strike"]);
+const redEyesBlackDragon = new BattlePartner("Red Eyes Black Dragon",["../assets/rebd1.png","../assets/rebd2.png"],["Dark Flare Burst", "Fireball Blast", "Inferno Dive","Rock Throw"]);
+const valkyrionTheMagnaWarrior = new BattlePartner("Valkyrion the Magna Warrior",["../assets/valk1.png","../assets/valk2.png"],["Terra Magna", "Magna Blast", "Thunder","Magnetic Shock"]);
 
 // Keys - Img Class Name : Battle Partner Object
 
@@ -191,7 +191,7 @@ const battleButton = document.querySelector('.battleButton');
 if (battleButton) {
 battleButton.addEventListener('click', () => {
     if (selectedBattlePartner) {
-    window.location.href = './battle/battle.html';
+    window.location.href = '../battle/battle.html';
     }
   });
 }
