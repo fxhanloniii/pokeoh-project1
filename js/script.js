@@ -242,7 +242,6 @@ let gameDetails = document.querySelector('.gameDetails');
 let player1Turn = true;
 let health1 = document.querySelector('.health1');
 let health2 = document.querySelector('.health2');
-
 function player1Attack() {
     gameDetails.innerHTML = 'Choose Your Move';
     moveButtons.forEach((button, index) => {
@@ -260,6 +259,11 @@ function player1Attack() {
                 player2Health -= damage;
                 let healthLeft2 = player2Health - damage;
                 health2.style.width = `${healthLeft2}%`;
+                if (player2Health <= 75 && player2Health >= 30) {
+                    health2.style.backgroundColor = 'yellow';
+                } else if (player2Health < 30) {
+                    health2.style.backgroundColor = 'red';
+                };
                 setTimeout(() => {
                     if (player2Health <= 0) {
                         endGame(selectedBattlePartnerName, selectedCharacterName);
@@ -285,6 +289,11 @@ function player2Attack() {
         player1Health -= damage;
         let healthLeft1 = player1Health - damage;
         health1.style.width = `${healthLeft1}%`;
+        if (player1Health <= 75 && player1Health >= 30) {
+            health1.style.backgroundColor = 'yellow';
+        } else if (player2Health < 30) {
+            health1.style.backgroundColor = 'red';
+        };
         setTimeout(() => {
             if (player1Health <= 0) {
                 endGame(player2BattlePartner.name, player2Character.name);
