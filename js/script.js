@@ -29,9 +29,9 @@ class BattlePartner {
 
 const charizard = new BattlePartner ("Charizard", ["../assets/char1.png","../assets/char2.png"], ["Ember", "Dragon Rage", "Flame Thrower", "Rock Throw"],"../assets/char.gif");
 const blastoise = new BattlePartner("Blastoise",["../assets/blas1.png","../assets/blas2.png"],["Water Gun", "Hydro Pump", "Surf","Rain Dance"], "../assets/blas.gif");
-const gengar = new BattlePartner("Gengar",["../assets/geng1.png","../assets/geng2.png"],["Shadow Ball", "Dark Pulse", "Shadow Claw","Dream Eater"]);
+const gengar = new BattlePartner("Gengar",["../assets/geng1.png","../assets/geng2.png"],["Shadow Ball", "Dark Pulse", "Shadow Claw","Dream Eater"],"../assets/geng.gif");
 const gyarados = new BattlePartner("Gyarados",["../assets/gyar1.png","../assets/gyar2.png"],["Hyper Beam", "Dragon Pulse", "Surf","Waterfall"], "../assets/gyar.gif");
-const pikachu = new BattlePartner("Pikachu",["../assets/pika1.png","../assets/pika2.png"],["Spark", "Thunder Punch", "Electro Ball","Thunder"]);
+const pikachu = new BattlePartner("Pikachu",["../assets/pika1.png","../assets/pika2.png"],["Spark", "Thunder Punch", "Electro Ball","Thunder"],"../assets/pika.gif");
 const venusaur = new BattlePartner("Venusaur",["../assets/venu1.png","../assets/venu2.png"],["Solar Beam", "Toxic", "Rock Throw","Sludge Bomb"]);
 const blueEyesWhiteDragon = new BattlePartner ("Blue Eyes White Dragon", ["../assets/bewd1.png","../assets/bewd2.png"], ["Light Blast", "Dragon Burst", "Dragonic Roar", "Dragon Cannon"], "../assets/bewd.gif");
 const darkMagician = new BattlePartner("Dark Magician",["../assets/dm1.png","../assets/dm2.png"],["Dark Magic", "Thousand Knives", "Illusion Magic","Dark Renewal"]);
@@ -156,7 +156,7 @@ nextButton.addEventListener('click', () => {
 // Function to take selection and input it into the selection div
 function mySelection(battlePartner) {
     document.querySelector('.partnerName').innerHTML = battlePartner.name;
-    document.querySelector('.selectedPartnerImg').setAttribute('src', battlePartner.image[0]);
+    document.querySelector('.selectedPartnerImg').setAttribute('src', battlePartner.gif);
     const moveBoxes = document.querySelectorAll('.movebox p');
     for (i = 0; i < battlePartner.moves.length; i++) {
         moveBoxes[i].innerHTML = battlePartner.moves[i];
