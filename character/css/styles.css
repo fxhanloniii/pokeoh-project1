@@ -46,6 +46,10 @@ header img {
     overflow:hidden;
     margin: 20px;
 }
+.img:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
 .ash, .brock, .yami, .joey {
     width: 100%;
 }
