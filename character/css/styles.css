@@ -49,6 +49,7 @@ header img {
 .img:hover {
     cursor: pointer;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    background-color: rgb(128, 176, 128);
 }
 .ash, .brock, .yami, .joey {
     width: 100%;
