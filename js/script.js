@@ -103,15 +103,11 @@ function attackMove(move, player1Turn) {
 }; 
 
 // Music Player On Battle Page
+const audio = document.querySelector("audio");
+if (audio) {
+audio.volume = 0.3;
+}
 
-function toggleMusic() {
-var audio = document.getElementById("audio");
-if (audio.paused) {
-audio.play();
-} else {
-audio.pause();
-}
-}
 
 // Start Button On Home Page
 
