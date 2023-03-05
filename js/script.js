@@ -32,13 +32,13 @@ const blastoise = new BattlePartner("Blastoise",["../assets/blas1.png","../asset
 const gengar = new BattlePartner("Gengar",["../assets/geng1.png","../assets/geng2.png"],["Shadow Ball", "Dark Pulse", "Shadow Claw","Dream Eater"],"../assets/geng.gif");
 const gyarados = new BattlePartner("Gyarados",["../assets/gyar1.png","../assets/gyar2.png"],["Hyper Beam", "Dragon Pulse", "Surf","Waterfall"], "../assets/gyar.gif");
 const pikachu = new BattlePartner("Pikachu",["../assets/pika1.png","../assets/pika2.png"],["Spark", "Thunder Punch", "Electro Ball","Thunder"],"../assets/pika.gif");
-const venusaur = new BattlePartner("Venusaur",["../assets/venu1.png","../assets/venu2.png"],["Solar Beam", "Toxic", "Rock Throw","Sludge Bomb"]);
+const venusaur = new BattlePartner("Venusaur",["../assets/venu1.png","../assets/venu2.png"],["Solar Beam", "Toxic", "Rock Throw","Sludge Bomb"],"../assets/venu.gif");
 const blueEyesWhiteDragon = new BattlePartner ("Blue Eyes White Dragon", ["../assets/bewd1.png","../assets/bewd2.png"], ["Light Blast", "Dragon Burst", "Dragonic Roar", "Dragon Cannon"], "../assets/bewd.gif");
-const darkMagician = new BattlePartner("Dark Magician",["../assets/dm1.png","../assets/dm2.png"],["Dark Magic", "Thousand Knives", "Illusion Magic","Dark Renewal"]);
-const elementalHeroFlameWingman = new BattlePartner("Elemental Hero Flame Wingman",["../assets/ehfw1.png","../assets/ehfw2.png"],["Inferno Blast", "Wing Burst", "Flame Tornado","Rock Throw"]);
-const gaiaTheFierceKnight = new BattlePartner("Gaia the Fierce Knight",["../assets/gtfn1.png","../assets/gtfn2.png"],["Light Blade", "Thunder Spear", "Tornado Blade","Swift Strike"]);
-const redEyesBlackDragon = new BattlePartner("Red Eyes Black Dragon",["../assets/rebd1.png","../assets/rebd2.png"],["Dark Flare", "Fireball Blast", "Inferno Dive","Rock Throw"]);
-const valkyrionTheMagnaWarrior = new BattlePartner("Valkyrion the Magna Warrior",["../assets/valk1.png","../assets/valk2.png"],["Terra Magna", "Magna Blast", "Thunder","Magnetic Shock"]);
+const darkMagician = new BattlePartner("Dark Magician",["../assets/dm1.png","../assets/dm2.png"],["Dark Magic", "Thousand Knives", "Illusion Magic","Dark Renewal"],"../assets/dm.gif");
+const elementalHeroFlameWingman = new BattlePartner("Elemental Hero Flame Wingman",["../assets/ehfw1.png","../assets/ehfw2.png"],["Inferno Blast", "Wing Burst", "Flame Tornado","Rock Throw"],"../assets/ehfw.gif");
+const gaiaTheFierceKnight = new BattlePartner("Gaia the Fierce Knight",["../assets/gtfn1.png","../assets/gtfn2.png"],["Light Blade", "Thunder Spear", "Tornado Blade","Swift Strike"],"../assets/gtfn.gif");
+const redEyesBlackDragon = new BattlePartner("Red Eyes Black Dragon",["../assets/rebd1.png","../assets/rebd2.png"],["Dark Flare", "Fireball Blast", "Inferno Dive","Rock Throw"],"../assets/rebd.gif");
+const valkyrionTheMagnaWarrior = new BattlePartner("Valkyrion the Magna Warrior",["../assets/valk1.png","../assets/valk2.png"],["Terra Magna", "Magna Blast", "Thunder","Magnetic Shock"],"../assets/valk.gif");
 
 // Keys - Img Class Name : Battle Partner Object
 
