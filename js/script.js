@@ -156,7 +156,12 @@ nextButton.addEventListener('click', () => {
 // Function to take selection and input it into the selection div
 function mySelection(battlePartner) {
     document.querySelector('.partnerName').innerHTML = battlePartner.name;
-    document.querySelector('.selectedPartnerImg').setAttribute('src', battlePartner.gif);
+    let selectDiv = document.querySelector('.imageselect');
+    selectDiv.innerHTML = '';
+    let selectImg = document.createElement('img');
+    selectImg.setAttribute('src',`../assets/${battlePartner.gif}`);
+    selectDiv.appendChild(selectImg);
+   //document.querySelector('.selectedPartnerImg').setAttribute('src', battlePartner.gif);
     const moveBoxes = document.querySelectorAll('.movebox p');
     for (i = 0; i < battlePartner.moves.length; i++) {
         moveBoxes[i].innerHTML = battlePartner.moves[i];
