@@ -2,6 +2,7 @@
 let selectedCharacter = null;
 let selectedCharacterName = null;
 let selectedCharacterImage = null;
+let selectedCharacterGif = null;
 let selectedBattlePartner = null;
 let selectedBattlePartnerName = null;
 let selectedBattlePartnerImage = null;
@@ -9,11 +10,14 @@ let selectedBattlePartnerMove1 = null;
 let selectedBattlePartnerMove2 = null;
 let selectedBattlePartnerMove3 = null;
 let selectedBattlePartnerMove4 = null;
+let selectedBattlePartnerGif = null;
 let player2CharacterIndex = 0;
 let player2BattlePartnerIndex = 0;
 let player2Character = null;
 let player2BattlePartner = null;
 let player2Image = null;
+let player2Gif = null;
+let player2BPGif = null;
 
 // Battle Partner Class & Objects
 
@@ -60,17 +64,18 @@ const BattlePartnerList = {
 // Character Class & Objects
 
 class Character {
-    constructor(name, image) {
+    constructor(name, image, gif) {
         this.name = name;
         this.image = image;
+        this.gif = gif;
     };
 
 };
 
-const ash = new Character ("Ash", ["../assets/ash1.png","../assets/ash2.png"]);
-const brock = new Character ("Brock", ["../assets/brock1.png","../assets/brock2.png"]);
-const yami = new Character ("Yami", ["../assets/yami1.png","../assets/yami2.png"]);
-const joey = new Character ("Joey", ["../assets/joey1.png","../assets/joey2.png"]);
+const ash = new Character ("Ash", ["../assets/ash1.png","../assets/ash2.png"],"../assets/ash.gif");
+const brock = new Character ("Brock", ["../assets/brock1.png","../assets/brock2.png"],"../assets/brock.gif");
+const yami = new Character ("Yami", ["../assets/yami1.png","../assets/yami2.png"],"../assets/yami.gif");
+const joey = new Character ("Joey", ["../assets/joey1.png","../assets/joey2.png"],"../assets/joey.gif");
 
 // Character Keys
 
@@ -126,8 +131,10 @@ characterImages.forEach(img => {
     img.addEventListener('click', () => {
         selectedCharacter = characterList[img.classList[0]];
         selectedCharacterName = selectedCharacter.name;
+        selectedCharacterGif = selectedCharacter.gif;
         sessionStorage.setItem('selectedCharacterName', selectedCharacter.name);
-        sessionStorage.setItem('selectedCharacterImage', selectedCharacter.image[0])
+        sessionStorage.setItem('selectedCharacterImage', selectedCharacter.image[0]);
+        sessionStorage.setItem('selectedCharacterGif', selectedCharacter.gif);
         myCharacterText.innerHTML = `You Selected: ${selectedCharacter.name}`;
     });
 });
@@ -178,12 +185,14 @@ battlePartnerImages.forEach(img => {
         selectedBattlePartnerMove2 = battlePartner.moves[1];
         selectedBattlePartnerMove3 = battlePartner.moves[2];
         selectedBattlePartnerMove4 = battlePartner.moves[3];
+        selectedBattlePartnerGif = battlePartner.gif;
         sessionStorage.setItem('selectedBattlePartnerName', selectedBattlePartnerName);
         sessionStorage.setItem('selectedBattlePartnerImage', selectedBattlePartnerImage);
         sessionStorage.setItem('selectedBattlePartnerMove1', selectedBattlePartnerMove1);
         sessionStorage.setItem('selectedBattlePartnerMove2', selectedBattlePartnerMove2);
         sessionStorage.setItem('selectedBattlePartnerMove3', selectedBattlePartnerMove3);
         sessionStorage.setItem('selectedBattlePartnerMove4', selectedBattlePartnerMove4);
+        sessionStorage.setItem('selectedBattlePartnerGif', selectedBattlePartnerGif);
 });
 });
 
@@ -217,11 +226,18 @@ document.querySelector('#move1').innerHTML = `${selectedBattlePartnerMove1}`;
 document.querySelector('#move2').innerHTML = `${selectedBattlePartnerMove2}`;
 document.querySelector('#move3').innerHTML = `${selectedBattlePartnerMove3}`;
 document.querySelector('#move4').innerHTML = `${selectedBattlePartnerMove4}`;
+
+// Random Player 2 Charcter & Battle Partner
+
 player2CharacterIndex = Math.floor(Math.random() * Object.keys(characterList).length);
 player2BattlePartnerIndex = Math.floor(Math.random() * Object.keys(BattlePartnerList).length);
 player2Character = characterList[Object.keys(characterList)[player2CharacterIndex]];
 player2BattlePartner = BattlePartnerList[Object.keys(BattlePartnerList)[player2BattlePartnerIndex]];
 player2Image = player2Character.image[1];
+player2Gif = player2Character.gif;
+player2BPGif = player2BattlePartner.gif;
+sessionStorage.setItem('player2Gif', player2Gif);
+sessionStorage.setItem('player2BPGif', player2BPGif);
 document.querySelector('.team2').innerHTML = `Team ${player2Character.name}`;
 document.querySelector('.player2Img').setAttribute('src', player2Character.image[1]); 
 document.querySelector('.partner2Img').setAttribute('src', player2BattlePartner.image[1]);
@@ -238,7 +254,7 @@ let player1Health = 100;
 let player2Health = 100;
 let attack = 20;
 const player1Moves = [selectedBattlePartnerMove1, selectedBattlePartnerMove2, selectedBattlePartnerMove3, selectedBattlePartnerMove4];
-const player2Moves =[player2BattlePartner.moves[0],player2BattlePartner.moves[1],player2BattlePartner.moves[2],player2BattlePartner.moves[3]];
+// const player2Moves =[player2BattlePartner.moves[0],player2BattlePartner.moves[1],player2BattlePartner.moves[2],player2BattlePartner.moves[3]];
 const moveButtons = document.querySelectorAll('.moveButtons1 button');
 let gameDetails = document.querySelector('.gameDetails');
 let player1Turn = true;
@@ -322,9 +338,17 @@ function calculateDamage() {
 
 // End Game Function
 function endGame(bpWinner, cWinner) {
-    gameDetails.innerHTML = `${bpWinner} and ${cWinner} Win!`
+    sessionStorage.setItem('bpWinner', bpWinner);
+    sessionStorage.setItem('cWinner', cWinner);
     window.location.href = "../finale/finale.html"
 }
 
 };
 
+// Finale Page
+let finale = document.querySelector('.finale')
+if (finale) {
+bpWin = sessionStorage.getItem('bpWinner');
+cWin = sessionStorage.getItem('cWinner');
+document.querySelector('.winnerText').innerHTML = `${bpWin} & ${cWin} Win!`;
+};
