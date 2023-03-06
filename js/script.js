@@ -323,6 +323,7 @@ function calculateDamage() {
 // End Game Function
 function endGame(bpWinner, cWinner) {
     gameDetails.innerHTML = `${bpWinner} and ${cWinner} Win!`
+    window.location.href = "../finale/finale.html"
 }
 
 };
