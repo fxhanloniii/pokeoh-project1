@@ -186,6 +186,7 @@ battlePartnerImages.forEach(img => {
         selectedBattlePartnerMove3 = battlePartner.moves[2];
         selectedBattlePartnerMove4 = battlePartner.moves[3];
         selectedBattlePartnerGif = battlePartner.gif;
+        console.log(selectedBattlePartnerGif)
         sessionStorage.setItem('selectedBattlePartnerName', selectedBattlePartnerName);
         sessionStorage.setItem('selectedBattlePartnerImage', selectedBattlePartnerImage);
         sessionStorage.setItem('selectedBattlePartnerMove1', selectedBattlePartnerMove1);
@@ -216,6 +217,8 @@ selectedBattlePartnerMove1 = sessionStorage.getItem('selectedBattlePartnerMove1'
 selectedBattlePartnerMove2 = sessionStorage.getItem('selectedBattlePartnerMove2');
 selectedBattlePartnerMove3 = sessionStorage.getItem('selectedBattlePartnerMove3');
 selectedBattlePartnerMove4 = sessionStorage.getItem('selectedBattlePartnerMove4');
+selectedBattlePartnerGif = sessionStorage.getItem('selectedBattlePartnerGif');
+selectedCharacterGif = sessionStorage.getItem('selectedCharacterGif');
 let battlePage = document.querySelector('.team','.playerLeftImg','.partnerLeftImg');
 if (battlePage) {
 document.querySelector('.team').innerHTML = `Team ${selectedCharacterName}`;
@@ -284,7 +287,7 @@ function player1Attack() {
                 };
                 setTimeout(() => {
                     if (player2Health <= 0) {
-                        endGame(selectedBattlePartnerName, selectedCharacterName);
+                        endGame(selectedBattlePartnerName, selectedCharacterName, selectedCharacterGif, selectedBattlePartnerGif);
                     } else {
                         player1Turn = false;
                         player2Attack();
@@ -314,7 +317,7 @@ function player2Attack() {
         };
         setTimeout(() => {
             if (player1Health <= 0) {
-                endGame(player2BattlePartner.name, player2Character.name);
+                endGame(player2BattlePartner.name, player2Character.name, player2Gif, player2BPGif);
             } else {
                 player1Turn = true;
                 moveButtons.forEach(button => {
@@ -337,9 +340,11 @@ function calculateDamage() {
 }
 
 // End Game Function
-function endGame(bpWinner, cWinner) {
+function endGame(bpWinner, cWinner, cGif, bpGif) {
     sessionStorage.setItem('bpWinner', bpWinner);
     sessionStorage.setItem('cWinner', cWinner);
+    sessionStorage.setItem('cGif', cGif);
+    sessionStorage.setItem('bpGif', bpGif)
     window.location.href = "../finale/finale.html"
 }
 
@@ -350,5 +355,9 @@ let finale = document.querySelector('.finale')
 if (finale) {
 bpWin = sessionStorage.getItem('bpWinner');
 cWin = sessionStorage.getItem('cWinner');
+bpWinGif = sessionStorage.getItem('bpGif');
+cWinGif = sessionStorage.getItem('cGif');
 document.querySelector('.winnerText').innerHTML = `${bpWin} & ${cWin} Win!`;
+console.log(bpWinGif);
+console.log(cWinGif);
 };
