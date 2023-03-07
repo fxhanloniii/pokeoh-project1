@@ -367,7 +367,7 @@ if (finalePage) {
     const playAgain = document.querySelector('.playAgain');
     if (playAgain) {
     playAgain.addEventListener('click', () => {
-    window.location.href = '../character/character.html';
+    window.location.href = '../index.html';
   });
 }
 };
