@@ -55,6 +55,10 @@ header img {
     box-sizing: border-box;
     overflow:hidden  
 }
+.bpWinner img, .cWinner img {
+    width: 100%;
+    height: 100%;
+}
 button {
     background-color: #f5b7b1; 
     border: 3px solid #d35400; 

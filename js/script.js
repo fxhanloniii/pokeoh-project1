@@ -186,7 +186,6 @@ battlePartnerImages.forEach(img => {
         selectedBattlePartnerMove3 = battlePartner.moves[2];
         selectedBattlePartnerMove4 = battlePartner.moves[3];
         selectedBattlePartnerGif = battlePartner.gif;
-        console.log(selectedBattlePartnerGif)
         sessionStorage.setItem('selectedBattlePartnerName', selectedBattlePartnerName);
         sessionStorage.setItem('selectedBattlePartnerImage', selectedBattlePartnerImage);
         sessionStorage.setItem('selectedBattlePartnerMove1', selectedBattlePartnerMove1);
@@ -204,9 +203,9 @@ if (battleButton) {
 battleButton.addEventListener('click', () => {
     if (selectedBattlePartner) {
     window.location.href = '../battle/battle.html';
-    }
+    };
   });
-}
+};
 
 // Battle Page
 selectedCharacterName = sessionStorage.getItem('selectedCharacterName');
@@ -344,20 +343,31 @@ function endGame(bpWinner, cWinner, cGif, bpGif) {
     sessionStorage.setItem('bpWinner', bpWinner);
     sessionStorage.setItem('cWinner', cWinner);
     sessionStorage.setItem('cGif', cGif);
-    sessionStorage.setItem('bpGif', bpGif)
+    sessionStorage.setItem('bpGif', bpGif);
     window.location.href = "../finale/finale.html"
-}
-
 };
-
+};
 // Finale Page
-let finale = document.querySelector('.finale')
-if (finale) {
-bpWin = sessionStorage.getItem('bpWinner');
-cWin = sessionStorage.getItem('cWinner');
-bpWinGif = sessionStorage.getItem('bpGif');
-cWinGif = sessionStorage.getItem('cGif');
-document.querySelector('.winnerText').innerHTML = `${bpWin} & ${cWin} Win!`;
-console.log(bpWinGif);
-console.log(cWinGif);
+let finalePage = document.querySelector('.finale');
+if (finalePage) {
+    bpWin = sessionStorage.getItem('bpWinner');
+    cWin = sessionStorage.getItem('cWinner');
+    let bpWinGif = sessionStorage.getItem('bpGif');
+    let cWinGif = sessionStorage.getItem('cGif');
+    document.querySelector('.winnerText').innerHTML = `${bpWin} & ${cWin} Win!`;
+    let bpWinner = document.querySelector('.bpWinner');
+    let cWinner = document.querySelector('.cWinner');
+    let winGif1 = document.createElement('img');
+    let winGif2 = document.createElement('img');
+    winGif1.setAttribute('src',`../assets/${bpWinGif}`);
+    winGif2.setAttribute('src', `../assets/${cWinGif}`);
+    bpWinner.appendChild(winGif1);
+    cWinner.appendChild(winGif2);
+
+    const playAgain = document.querySelector('.playAgain');
+    if (playAgain) {
+    playAgain.addEventListener('click', () => {
+    window.location.href = '../character/character.html';
+  });
+}
 };
