@@ -364,6 +364,8 @@ if (finalePage) {
     bpWinner.appendChild(winGif1);
     cWinner.appendChild(winGif2);
 
+    // Play Again Button
+    
     const playAgain = document.querySelector('.playAgain');
     if (playAgain) {
     playAgain.addEventListener('click', () => {

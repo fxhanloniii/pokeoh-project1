@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
 html {
     background-image: url(../../assets/background.png);
@@ -26,7 +27,11 @@ header {
     text-align: center;
     width: 1050px;
     margin: 0 auto;
-    
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 48px;
+    color: #ffcb06;
+    letter-spacing: 7px;
+    -webkit-text-stroke: 3px #395ba8;
 }
 
 header img {
@@ -39,7 +44,7 @@ header img {
     border: 5px solid black;
     width: 200px;
     height: 200px;
-    background-color: rgb(93, 93, 93);
+    background-color: lightgray;
     border-radius: 20%;
     justify-content: center;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
