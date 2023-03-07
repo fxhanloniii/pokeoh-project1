@@ -82,7 +82,7 @@ header img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 10%;
+    padding-top: 20px;
     width: 1050px;
 }
 .bottomimg {
