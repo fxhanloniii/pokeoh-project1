@@ -3,6 +3,8 @@
 
 [Link To Play Game](https://fxhanloniii.github.io/pokeoh-project1/)
 
+[Figma](https://www.figma.com/file/A0QweagBCxgf8zmWxmaA60/Pok%C3%A9-Oh?node-id=0%3A1&t=RjjaHAAJPRz3MPRW-1)
+
 - Home Page:
 Brief Description of game,
 Start Button
@@ -90,4 +92,3 @@ Next Button
 ![Screenshot](./assets/screenshot9.png)
 ![Screenshot](./assets/screenshot10.png)
 
-[Figma](https://www.figma.com/file/A0QweagBCxgf8zmWxmaA60/Pok%C3%A9-Oh?node-id=0%3A1&t=RjjaHAAJPRz3MPRW-1)
