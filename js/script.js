@@ -1,4 +1,5 @@
 // Global Variables
+
 let selectedCharacter = null;
 let selectedCharacterName = null;
 let selectedCharacterImage = null;
@@ -93,6 +94,7 @@ function attackMove(move, player1Turn) {
     let attackImg = document.createElement('img');
     let imageName = move.toLowerCase().replace(' ','') + '.png';
     attackImg.setAttribute('src', `../assets/${imageName}`);
+    // if statement for attack animation image flip
     if (player1Turn) {
         attackImg.setAttribute('id', 'attackMove');
     } else {
@@ -100,8 +102,11 @@ function attackMove(move, player1Turn) {
         attackImg.style.transform = 'scaleX(-1)';
     }
     attackDiv.appendChild(attackImg);
+    // creates variable selecting the attack img id based on whose turn it is
     let attackMove = document.getElementById(player1Turn ? 'attackMove' : 'attackMove2');
+    // starts the animation
     attackMove.style.animationPlayState = 'running';
+    // function to remove the attack animation once it is finished
     attackMove.addEventListener('animationend', function() {
         attackDiv.removeChild(attackMove);
     });
@@ -365,7 +370,7 @@ if (finalePage) {
     cWinner.appendChild(winGif2);
 
     // Play Again Button
-    
+
     const playAgain = document.querySelector('.playAgain');
     if (playAgain) {
     playAgain.addEventListener('click', () => {
