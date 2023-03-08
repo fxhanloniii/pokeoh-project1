@@ -28,7 +28,11 @@ Next Button
     - Connecting the pages
     - Javascript
     - CSS Touch Up
-
+# Next Steps
+    - Animating Sprites with in the game to be able to dodge moves.
+    - Making the game longer and more fun!
+    - Leaderboard with scores
+    - Levels of difficulty 
 # Screenshots
 ![Screenshot](./assets/screenshot1.png)
 ![Screenshot](./assets/screenshot2.png)
