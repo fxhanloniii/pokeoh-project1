@@ -83,3 +83,11 @@ Next Button
     - Game Audio
         - https://opengameart.org/content/let-the-battles-begin
         - https://opengameart.org/content/on-my-way-8-bit-loop
+# Sketches
+![Screenshot](./assets/screenshot6.png)
+![Screenshot](./assets/screenshot7.png)
+![Screenshot](./assets/screenshot8.png)
+![Screenshot](./assets/screenshot9.png)
+![Screenshot](./assets/screenshot10.png)
+
+[Figma](https://www.figma.com/file/A0QweagBCxgf8zmWxmaA60/Pok%C3%A9-Oh?node-id=0%3A1&t=RjjaHAAJPRz3MPRW-1)
