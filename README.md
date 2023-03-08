@@ -10,7 +10,7 @@ Next Button
 - Select Your Battle Partner: 6 Pokemon & 6 Duel Monsters, You can only select one to battle with!
 - Battle Begins 
     - Player 1 Goes First Choosing 1 Attack.
-    - The attack executes then gets a random damage multiplier.
+    - The attack executes & gets a random damage multiplier.
     - Opponent/Computer goes randomly choosing attack
     - This process repeats until one teams health is 0
 
