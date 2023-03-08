@@ -87,14 +87,6 @@ const characterList = {
     joey: joey
 };
 
-
-// Music Player On Battle Page
-const audio = document.querySelector("audio");
-if (audio) {
-audio.volume = 0.3;
-}
-
-
 // Start Button On Home Page
 
 const startButton = document.querySelector('.start');
@@ -395,3 +387,11 @@ if (finalePage) {
   });
 }
 };
+
+// Music Player On Battle Page
+const audio = document.querySelector('audio');
+if (audio) {
+audio.volume = 0.1;
+};
+
+
