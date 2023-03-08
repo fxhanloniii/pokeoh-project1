@@ -35,7 +35,7 @@ class BattlePartner {
 const charizard = new BattlePartner ("Charizard", ["../assets/char1.png","../assets/char2.png"], ["Ember", "Dragon Rage", "Flame Thrower", "Rock Throw"],"../assets/char.gif");
 const blastoise = new BattlePartner("Blastoise",["../assets/blas1.png","../assets/blas2.png"],["Water Gun", "Hydro Pump", "Surf","Rain Dance"], "../assets/blas.gif");
 const gengar = new BattlePartner("Gengar",["../assets/geng1.png","../assets/geng2.png"],["Shadow Ball", "Dark Pulse", "Shadow Claw","Dream Eater"],"../assets/geng.gif");
-const gyarados = new BattlePartner("Gyarados",["../assets/gyar1.png","../assets/gyar2.png"],["Hyper Beam", "Dragon Pulse", "Surf","Waterfall"], "../assets/gyar.gif");
+const gyarados = new BattlePartner("Gyarados",["../assets/gyar1.png","../assets/gyar2.png"],["Hyper Beam", "Dragon Pulse", "Surf","Water Gun"], "../assets/gyar.gif");
 const pikachu = new BattlePartner("Pikachu",["../assets/pika1.png","../assets/pika2.png"],["Spark", "Thunder Punch", "Electro Ball","Thunder"],"../assets/pika.gif");
 const venusaur = new BattlePartner("Venusaur",["../assets/venu1.png","../assets/venu2.png"],["Solar Beam", "Toxic", "Rock Throw","Sludge Bomb"],"../assets/venu.gif");
 const blueEyesWhiteDragon = new BattlePartner ("Blue Eyes White Dragon", ["../assets/bewd1.png","../assets/bewd2.png"], ["Light Blast", "Dragon Burst", "Dragonic Roar", "Dragon Cannon"], "../assets/bewd.gif");
@@ -87,30 +87,6 @@ const characterList = {
     joey: joey
 };
 
-// Attack Move Function
-
-function attackMove(move, player1Turn) {
-    let attackDiv = document.querySelector('.attack');
-    let attackImg = document.createElement('img');
-    let imageName = move.toLowerCase().replace(' ','') + '.png';
-    attackImg.setAttribute('src', `../assets/${imageName}`);
-    // if statement for attack animation image flip
-    if (player1Turn) {
-        attackImg.setAttribute('id', 'attackMove');
-    } else {
-        attackImg.setAttribute('id', 'attackMove2');
-        attackImg.style.transform = 'scaleX(-1)';
-    }
-    attackDiv.appendChild(attackImg);
-    // creates variable selecting the attack img id based on whose turn it is
-    let attackMove = document.getElementById(player1Turn ? 'attackMove' : 'attackMove2');
-    // starts the animation
-    attackMove.style.animationPlayState = 'running';
-    // function to remove the attack animation once it is finished
-    attackMove.addEventListener('animationend', function() {
-        attackDiv.removeChild(attackMove);
-    });
-}; 
 
 // Music Player On Battle Page
 const audio = document.querySelector("audio");
@@ -134,9 +110,11 @@ let myCharacterText = document.querySelector('.myCharacter');
 const characterImages = document.querySelectorAll('.character img');
 characterImages.forEach(img => {
     img.addEventListener('click', () => {
+        // finding class name of clicked image which will use key list to assign the appropriate object to the variables
         selectedCharacter = characterList[img.classList[0]];
         selectedCharacterName = selectedCharacter.name;
         selectedCharacterGif = selectedCharacter.gif;
+        // stores values so they can carry over to through out the pages
         sessionStorage.setItem('selectedCharacterName', selectedCharacter.name);
         sessionStorage.setItem('selectedCharacterImage', selectedCharacter.image[0]);
         sessionStorage.setItem('selectedCharacterGif', selectedCharacter.gif);
@@ -169,7 +147,6 @@ function mySelection(battlePartner) {
     let selectImg = document.createElement('img');
     selectImg.setAttribute('src',`../assets/${battlePartner.gif}`);
     selectDiv.appendChild(selectImg);
-   //document.querySelector('.selectedPartnerImg').setAttribute('src', battlePartner.gif);
     const moveBoxes = document.querySelectorAll('.movebox p');
     for (i = 0; i < battlePartner.moves.length; i++) {
         moveBoxes[i].innerHTML = battlePartner.moves[i];
@@ -181,6 +158,7 @@ function mySelection(battlePartner) {
 const battlePartnerImages = document.querySelectorAll('.pokemon img, .yugioh img');
 battlePartnerImages.forEach(img => {
     img.addEventListener('click', () => {
+        // finding class name of clicked image which will use key list to assign the appropriate object to the variables
         selectedBattlePartner = img.classList[0];
         const battlePartner = BattlePartnerList[selectedBattlePartner];
         mySelection(battlePartner);
@@ -191,6 +169,7 @@ battlePartnerImages.forEach(img => {
         selectedBattlePartnerMove3 = battlePartner.moves[2];
         selectedBattlePartnerMove4 = battlePartner.moves[3];
         selectedBattlePartnerGif = battlePartner.gif;
+        // stores values so they can carry over to through out the pages
         sessionStorage.setItem('selectedBattlePartnerName', selectedBattlePartnerName);
         sessionStorage.setItem('selectedBattlePartnerImage', selectedBattlePartnerImage);
         sessionStorage.setItem('selectedBattlePartnerMove1', selectedBattlePartnerMove1);
@@ -213,6 +192,8 @@ battleButton.addEventListener('click', () => {
 };
 
 // Battle Page
+
+// Retrieves Values From Session Storage
 selectedCharacterName = sessionStorage.getItem('selectedCharacterName');
 selectedCharacterImage = sessionStorage.getItem('selectedCharacterImage');
 selectedBattlePartnerName = sessionStorage.getItem('selectedBattlePartnerName');
@@ -223,8 +204,11 @@ selectedBattlePartnerMove3 = sessionStorage.getItem('selectedBattlePartnerMove3'
 selectedBattlePartnerMove4 = sessionStorage.getItem('selectedBattlePartnerMove4');
 selectedBattlePartnerGif = sessionStorage.getItem('selectedBattlePartnerGif');
 selectedCharacterGif = sessionStorage.getItem('selectedCharacterGif');
-let battlePage = document.querySelector('.team','.playerLeftImg','.partnerLeftImg');
+let battlePage = document.querySelector('.battlePage');
 if (battlePage) {
+
+// Sets Text and Images for your Selected Character and Battle Partner
+
 document.querySelector('.team').innerHTML = `Team ${selectedCharacterName}`;
 document.querySelector('.playerLeftImg').setAttribute('src', selectedCharacterImage);
 document.querySelector('.partnerLeftImg').setAttribute('src', selectedBattlePartnerImage);
@@ -235,9 +219,10 @@ document.querySelector('#move3').innerHTML = `${selectedBattlePartnerMove3}`;
 document.querySelector('#move4').innerHTML = `${selectedBattlePartnerMove4}`;
 
 // Random Player 2 Charcter & Battle Partner
-
+// Object.keys returns an array for character & battle partner list
 player2CharacterIndex = Math.floor(Math.random() * Object.keys(characterList).length);
 player2BattlePartnerIndex = Math.floor(Math.random() * Object.keys(BattlePartnerList).length);
+// Index values then used to set the value of variables to randomly selected character and BP
 player2Character = characterList[Object.keys(characterList)[player2CharacterIndex]];
 player2BattlePartner = BattlePartnerList[Object.keys(BattlePartnerList)[player2BattlePartnerIndex]];
 player2Image = player2Character.image[1];
@@ -245,6 +230,7 @@ player2Gif = player2Character.gif;
 player2BPGif = player2BattlePartner.gif;
 sessionStorage.setItem('player2Gif', player2Gif);
 sessionStorage.setItem('player2BPGif', player2BPGif);
+// Sets Text and Images for the opponents Selected Character and Battle Partner
 document.querySelector('.team2').innerHTML = `Team ${player2Character.name}`;
 document.querySelector('.player2Img').setAttribute('src', player2Character.image[1]); 
 document.querySelector('.partner2Img').setAttribute('src', player2BattlePartner.image[1]);
@@ -261,35 +247,40 @@ let player1Health = 100;
 let player2Health = 100;
 let attack = 20;
 const player1Moves = [selectedBattlePartnerMove1, selectedBattlePartnerMove2, selectedBattlePartnerMove3, selectedBattlePartnerMove4];
-// const player2Moves =[player2BattlePartner.moves[0],player2BattlePartner.moves[1],player2BattlePartner.moves[2],player2BattlePartner.moves[3]];
 const moveButtons = document.querySelectorAll('.moveButtons1 button');
 let gameDetails = document.querySelector('.gameDetails');
 let player1Turn = true;
 let health1 = document.querySelector('.health1');
 let health2 = document.querySelector('.health2');
+// Player 1 Attack Function
 function player1Attack() {
     gameDetails.innerHTML = 'Choose Your Move';
+    // Event Listener waiting for one of the attack moves to be clicked
     moveButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
             if (player1Turn) {
+                // Disables Buttons until your turn again
             moveButtons.forEach(button => {
                 button.disabled = true;
             });
+            // takes clicked button index number using it for player1Moves array
             let player1Attack = player1Moves[index];
+            // Calls attack move function
             attackMove(player1Attack, true);
             gameDetails.innerHTML = `${selectedBattlePartnerName} uses ${player1Attack}`;
-            setTimeout(() => {
+            setTimeout(() => { // Delays for innerHTML to print & Calls Calculate damage function
                 let damage = calculateDamage();
                 gameDetails.innerHTML = `Dealing ${damage} damage`;
                 player2Health -= damage;
                 let healthLeft2 = player2Health - damage;
+                // Changes health bar by percentage width & if statements for color change
                 health2.style.width = `${healthLeft2}%`;
                 if (player2Health <= 75 && player2Health >= 30) {
                     health2.style.backgroundColor = 'yellow';
                 } else if (player2Health < 30) {
                     health2.style.backgroundColor = 'red';
                 };
-                setTimeout(() => {
+                setTimeout(() => { // Calls endGame fucntion if player2 health is <= 0
                     if (player2Health <= 0) {
                         endGame(selectedBattlePartnerName, selectedCharacterName, selectedCharacterGif, selectedBattlePartnerGif);
                     } else {
@@ -305,6 +296,7 @@ function player1Attack() {
 }
 
 function player2Attack() {
+    // Random move for opponent 
     const player2Move = player2BattlePartner.moves[Math.floor(Math.random() * player2BattlePartner.moves.length)];
     attackMove(player2Move, false);
     gameDetails.innerHTML = `${player2BattlePartner.name} uses ${player2Move}`
@@ -334,6 +326,31 @@ function player2Attack() {
 }
 
 player1Attack();
+
+// Attack Move Function
+
+function attackMove(move, player1Turn) {
+    let attackDiv = document.querySelector('.attack');
+    let attackImg = document.createElement('img');
+    let imageName = move.toLowerCase().replace(' ','') + '.png';
+    attackImg.setAttribute('src', `../assets/${imageName}`);
+    // if statement for attack animation image flip and setting the id
+    if (player1Turn) {
+        attackImg.setAttribute('id', 'attackMove');
+    } else {
+        attackImg.setAttribute('id', 'attackMove2');
+        attackImg.style.transform = 'scaleX(-1)';
+    }
+    attackDiv.appendChild(attackImg);
+    // creates variable selecting the attack img id based on whose turn it is
+    let attackMove = document.getElementById(player1Turn ? 'attackMove' : 'attackMove2');
+    // starts the animation
+    attackMove.style.animationPlayState = 'running';
+    // function to remove the attack animation once it is finished
+    attackMove.addEventListener('animationend', function() {
+        attackDiv.removeChild(attackMove);
+    });
+}; 
 
 // Damage Multiplier
 
